@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8"><title>我所写过的代码比例</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/highcharts-3d.js"></script>
+        <script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+        <script src="https://cdn.highcharts.com.cn/highcharts/themes/sand-signika.js"></script>
+    </head>
+    <body>
+        <div id="container" style="height: 400px"></div>
+        <script>
+            var chart = Highcharts.chart('container', {
+		chart: {
+				type: 'pie',
+				options3d: {
+						enabled: true,
+						alpha: 45,
+						beta: 0
+				}
+		},
+		title: {
+				text: '我所写过的代码比例'
+		},
+		tooltip: {
+				pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+		},
+		plotOptions: {
+				pie: {
+						allowPointSelect: true,
+						cursor: 'pointer',
+						depth: 35,
+						dataLabels: {
+								enabled: true,
+								format: '{point.name}'
+						}
+				}
+		},
+		series: [{
+				type: 'pie',
+				name: '编程语言占比',
+				data: [
+						['JavaScript',   65.2],
+						['Python',       17.5],
+						{
+								name: 'HTML',
+								y: 15.7,
+								sliced: true,
+								selected: true
+						},
+						['C++',    1.5],					['Others',   0.1]
+				]
+		}]
+}); 
+        </script>
+    </body>
+</html>
